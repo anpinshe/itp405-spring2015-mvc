@@ -18,7 +18,7 @@
             </nav>
         </header>
         <div class="container-fluid">
-            <p>You searched for "<?php echo $title ?>" </p>
+            <p>You searched for "{{$title}}" </p>
             
             <table class="table table-striped">
                 <thead>
@@ -33,18 +33,18 @@
                   </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($dvds as $dvd) : ?>
+                    @foreach ($dvds as $dvd)
                     <tr>
-                        <td><?php echo $dvd->title ?></td>
-                        <td><?php echo $dvd->rating_name ?></td>
-                        <td><?php echo $dvd->genre_name ?></td>
-                        <td><?php echo $dvd->label_name ?></td>
-                        <td><?php echo $dvd->sound_name ?></td>
-                        <td><?php echo $dvd->format_name ?></td>
-                        <td><?php echo $dvd->release_date ?></td>
-                        <td><a href="/dvds/<?php echo $dvd->id ?>">Review</a></td>
+                        <td>{{$dvd->title }}</td>
+                        <td>{{ $dvd->rating_name }}</td>
+                        <td>{{ $dvd->genre_name }}</td>
+                        <td>{{ $dvd->label_name }}</td>
+                        <td>{{ $dvd->sound_name }}</td>
+                        <td>{{ $dvd->format_name }}</td>
+                        <td>{{ $dvd->release_date }}</td>
+                        <td><a href="/dvds/{{ $dvd->id }}">Review {{$dvd->id }}</a></td>
                     </tr>
-                    <?php endforeach ?>	
+                    @endforeach
                 </tbody>
             </table>
       

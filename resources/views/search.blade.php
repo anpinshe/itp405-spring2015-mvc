@@ -20,8 +20,21 @@
         </nav>
     </header>
     <div class="container-fluid">
-        <div class="mini-layout">
-        <div class="mini-layout-body">
+        <div class="mini-layout" style="width: 20%;float: left;overflow-y: scroll;overflow-x: hidden;height: 300px;">
+            <ul>
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Genres
+                    </a>
+                </li>
+                <?php foreach($genres as $genre) : ?>
+                <li>
+                    <a href="/genres/{{$genre->genre_name }}/dvds">{{ $genre->genre_name }}</a>
+                </li>
+                <?php endforeach ?>
+            </ul>
+        </div>
+        <div class="mini-layout-body" style="width: 75%;float: right;padding-right: 5%;" >
         <div class="mini-center">
             <p>&nbsp;</p>  
             <form method="get" action="/dvds">
@@ -65,10 +78,10 @@
                             <input type="submit" name="submit" class="btn btn-default" value="Search">
                         </td>
                     </tr>
+                    </table>
                     </form>
                 </div>
             </div>
-        </div>  
-    </div>
+        </div>
 </body>
 </html>
