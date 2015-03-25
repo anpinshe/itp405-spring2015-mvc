@@ -73,7 +73,7 @@ class DvdController extends Controller {
             return redirect('/dvds/create')->withInput()->withErrors($validation);
     }
     
-    public function review($id){
+    /*public function review($id){
         $r_ratings = array('1', '2', '3', '4', '5', '6', '7', '8', '9', '10');
         $dvds = (new DVDold())->getInfo($id);
         $reviews = (new DVDold())->getReviews($id);
@@ -84,7 +84,7 @@ class DvdController extends Controller {
 			'reviews' => $reviews,
             'r_ratings' => $r_ratings
 		]);
-    }
+    }*/
     
     public function createReview(Request $request){
 		$validation = DVDold::validate($request->all());

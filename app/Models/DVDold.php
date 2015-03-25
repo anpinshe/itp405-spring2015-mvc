@@ -23,7 +23,8 @@ class DVDold{
 		if($rating){
 			$query->where('rating_id', '=', $rating);
 		}
-		$query->orderBy('title', 'asc');
+        $query->select('dvds.*', 'dvds.id', 'title', 'ratings.rating_name', 'genres.genre_name', 'labels.label_name', 'sounds.sound_name', 'formats.format_name');
+		$query->orderBy('dvds.id', 'asc');
 		return $query->get();
 	}
 	public function getGenreName($genre){

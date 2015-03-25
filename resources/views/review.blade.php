@@ -43,7 +43,8 @@
                         <td><?php echo $dvd->format_name ?></td>
                         <td><?php echo $dvd->release_date ?></td>
                     </tr>
-                    <?php endforeach ?>	
+                    <?php endforeach ?>
+
                 </tbody>
             </table>
       
@@ -68,6 +69,39 @@
       
     </div>
     <p>&nbsp;</p>
+    <div class="container-fluid">
+        <table class="table table-striped">
+            @if($valid === 1)
+                <tr>
+                    <th>Critic Scores</th>
+                    <td>{{ $detail->ratings->critics_score}}</td>
+                </tr>
+                <tr>
+                    <th>Audience Score</th>
+                    <td>{{ $detail->ratings->audience_score}}</td>
+                </tr>
+                <tr>
+                    <th>Poster</th>
+                    <td><img src="{{$detail->posters->thumbnail}}"></td>
+                </tr>
+                <tr>
+                    <th>Runtime</th>
+                    <td>{{$detail->runtime}}</td>
+                </tr>
+                <tr>
+                    <th>Abridged Cast</th>
+                    <td>
+                        @foreach($detail->abridged_cast as $cast)
+                            <?php echo $cast->name; ?>:
+                            @if(isset($cast->characters))
+                                <?php echo array_values($cast->characters)[0]; ?>
+                            @endif
+                        @endforeach
+                    </td>
+                </tr>
+            @endif
+        </table>
+    </div>
     <div class="container-fluid">
         <div class="mini-layout">
         <div class="mini-layout-body">
@@ -127,6 +161,7 @@
                             <input type="submit" name="submit" class="btn btn-default" value="Add Review">
                         </td>
                     </tr>
+                </table>
                     </form>
                 </div>
             </div>
